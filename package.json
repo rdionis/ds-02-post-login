@@ -1,0 +1,25 @@
+{
+  "name": "exercise-3-post",
+  "version": "1.0.0",
+  "description": "## Write a user login - powered by POST",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FBW-17/ds-express-login-post.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FBW-17/ds-express-login-post/issues"
+  },
+  "homepage": "https://github.com/FBW-17/ds-express-login-post#readme"
+}
