@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Form</title>
+  <style>
+    label { display: block; }
+    .formInput {
+      margin: 10px 0;
+    }
+  </style>
+  <script>
+
+    const onSubmit = (e, form) => {
+      e.preventDefault()
+      let username = form.username.value
+      let password = form.password.value
+      console.log("Submit handler called. Please send some data soon...")
+      console.log("Form data: ", username, password)
+
+      let fetchConfig = {
+        method: "POST",
+        body: JSON.stringify({ username, password }),
+        headers: { "Content-Type": "application/json" }
+      }
+
+      fetch("http://localhost:5000/login", fetchConfig)
+      .then(res => res.json())
+      .then(dataAPI => {
+        console.log("Data from API:", dataAPI)
+      })
+
+
+      return false
+    }
+
+  </script>
+</head>
+<body>
+
+  <form onsubmit="onSubmit(event, this)">
+    <div class="formInput">
+      <label>Username:</label><input name="username" />
+    </div>
+    <div class="formInput">
+      <label>Password:</label><input name="password" type="password" />
+    </div>
+    <button type="submit">Login</button>
+  </form>  
+
+</body>
+</html>
+
