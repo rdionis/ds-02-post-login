@@ -1,6 +1,10 @@
 const express = require("express");
 const app = express();
-const post = 5001;
+const port = 5000;
+
+app.listen(port, () => {
+  console.log(`Started server on port ${port}`);
+});
 
 app.use(express.json());
 
@@ -14,8 +18,22 @@ app.get("/", (req, res) => {
   res.send("User logged in successfully");
 });
 
-app.post("/users", (req, res) => {
+app.get("/login", (req, res) => {
+  res.sendFile(__dirname + "/client/login.html");
+});
+
+app.post("/login", (req, res) => {
   console.log(req.body);
-  res.send();
-  return { message: "User logged in successfully" };
+
+  let exist = users.find((item) => {
+    return (
+      item.username === req.body.username && item.password === req.body.password
+    );
+  });
+  console.log(exist);
+  if (exist) {
+    res.send({ message: "Login successful" });
+  } else {
+    res.send({ message: "Login failed" });
+  }
 });
